@@ -41,6 +41,7 @@ function get_location($ip) {
 }
 
 $visitor_name = isset($_GET['visitor_name']) ? $_GET['visitor_name'] : "Guest";
+$visitor_name = preg_replace('~^"?(.*?)"?$~', '$1', $visitor_name);
 $client_ip = get_client_ip();
 $location = get_location($client_ip);
 
